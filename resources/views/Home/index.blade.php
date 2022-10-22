@@ -121,149 +121,121 @@
             </div>
         </div>
     </section>
-
-
     {{-- Services Section End --}}
 
-    {{-- Doctors Section Start --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Pricing Plan Start -->
+      <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Medical Packages</h5>
+                <h1 class="display-4">Medical Products</h1>
+            </div>
+            <div class="owl-carousel price-carousel position-relative" style="padding: 0 45px 45px 45px;">
+            
+                @foreach ($products as $product)
+
+                <div class="bg-light rounded text-center m-3">
+                    <div class="position-relative">
+                        <img class="img-fluid rounded-top" src="data:image/jpg;charset=utf8;base64,{{$product['image']}}" alt="0000000">
+                    
+                    </div>
+                    <div class="text-center py-5 m-5">
+                        <h3>{{$product['name']}}</h3>
+                        <p>{{$product['description']}}</p>
+                        <a href="order/{{$product['id']}}" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
+                    </div>
+                </div>
+                
+        
+                @endforeach
+        
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Team Start -->
     <div class="container-fluid py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5" style="max-width: 500px;">
                 <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Our Doctors</h5>
                 <h1 class="display-4">Qualified Healthcare Professionals</h1>
             </div>
-            <div class="owl-carousel team-carousel position-relative owl-loaded owl-drag">
-                <div class="owl-stage-main">
-                    <div class="owl-stage"
-                        style="transform: translate3d(-2964px, 0px, 0px); transition: all 1s ease 0s; width: 5187px;">
 
 
-                        @foreach ($doctors as $key => $doctor)
-                            <div class="owl-item {{ $key == 0 ? ' active' : '' }}"
-                                style="width: 696px; margin-right: 45px;">
-                                <div class="team-item">
-                                    <div class="row g-0 bg-light rounded overflow-hidden">
-                                        <div class="col-12 col-sm-5 h-100">
-                                            <img class="img-fluid h-100" src="{{ $doctor->image }}"
-                                                style="object-fit: cover;">
-                                        </div>
-                                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
-                                            <div class="mt-auto p-4">
-                                                <h3>{{ $doctor->name }}</h3>
-                                                <h6 class="fw-normal fst-italic text-primary mb-4">
-                                                    {{ $doctor->certificate }}</h6>
-                                            </div>
-                                            <div class="d-flex mt-auto border-top p-4">
-                                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3"
-                                                    href="#"><i class="fab fa-twitter"></i></a>
-                                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3"
-                                                    href="#"><i class="fab fa-facebook-f"></i></a>
-                                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle"
-                                                    href="#"><i class="fab fa-linkedin-in"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                    @endforeach
-                </div>
+                
                 <div class="owl-nav">
-                    <div class="owl-prev"><i class="bi bi-arrow-left"></i></div>
-                    <div class="owl-next"><i class="bi bi-arrow-right"></i></div>
-                </div>
-                <div class="owl-dots disabled"></div>
-            </div>
-        </div>
-    </div>
-    {{-- Doctors Section Ends --}}
-    <hr>
+                <div class="owl-prev"><i class="bi bi-arrow-left"></i></div>
+                <div class="owl-next"><i class="bi bi-arrow-right"></i></div>
+               </div>
 
-    {{-- Testo Section Start --}}
 
-    {{-- <section class="gradient-custom">
-        <div class="container-fluid py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-                    <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Testimonial</h5>
-                    <h1 class="display-4">Patients Say About Our Services</h1>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="col-md-12">
-                            <div class="text-center mb-4 pb-2">
-                                <i class="fas fa-quote-left fa-3x text-white"></i>
+               <div class="owl-dots disabled"></div>
+                @foreach($doctors as $doctor)
+                <div class="team-item">
+                    <div class="row g-0 bg-light rounded overflow-hidden">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" src="data:image/jpg;charset=utf8;base64,{{$doctor['image']}}" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div class="mt-auto p-4">
+                                <h3>{{$doctor['name']}}</h3>
+                                <h6 class="fw-normal fst-italic text-primary mb-4">{{App\Models\departments::find($doctor['department_id'])->name}}</h6>
+                                <p class="m-0">{{$doctor['overview']}}</p>
                             </div>
-
-                            <div class="card">
-                                <div class="card-body px-4 py-5">
-                                    <!-- Carousel wrapper -->
-                                    <div id="carouselDarkVariant" class="carousel slide carousel-dark"
-                                        data-mdb-ride="carousel">
-                                        <!-- Indicators -->
-                                        <div class="carousel-indicators mb-0">
-                                            <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="0"
-                                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                                            <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="1"
-                                                aria-label="Slide 1"></button>
-                                            <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="2"
-                                                aria-label="Slide 1"></button>
-                                        </div>
-
-                                        <!-- Inner -->
-                                        <div class="carousel-inner pb-5">
-                                            <!-- Single item -->
-                                            @foreach ($testimonialss as $key => $testimonial)
-                                                <div class="carousel-item {{ $key == 0 ? ' active' : '' }}">
-                                                    <div class="row d-flex justify-content-center">
-                                                        <div class="col-lg-10 col-xl-8">
-                                                            <div class="row">
-                                                                <div class="col-lg-4 d-flex justify-content-center">
-                                                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
-                                                                        class="rounded-circle shadow-1 mb-4 mb-lg-0"
-                                                                        alt="woman avatar" width="150"
-                                                                        height="150" />
-                                                                </div>
-                                                                <div
-                                                                    class="col-9 col-md-9 col-lg-7 col-xl-8 text-center text-lg-start mx-auto mx-lg-0">
-                                                                    <h4 class="mb-4">{{ $testimonial->name }}</h4>
-                                                                    </h4>
-                                                                    <p class="mb-0 pb-3">
-                                                                        {{ $testimonial->message }}
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-
-                                            <!-- Inner -->
-
-                                            <!-- Controls -->
-                                            <button class="carousel-control-prev" type="button"
-                                                data-mdb-target="#carouselDarkVariant" data-mdb-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="visually-hidden">Previous</span>
-                                            </button>
-                                            <button class="carousel-control-next" type="button"
-                                                data-mdb-target="#carouselDarkVariant" data-mdb-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="visually-hidden">Next</span>
-                                            </button>
-                                        </div>
-                                        <!-- Carousel wrapper -->
-                                    </div>
-                                </div>
-
-                                <div class="text-center mt-4 pt-2">
-                                    <i class="fas fa-quote-right fa-3x text-white"></i>
-                                </div>
+                            <div class="d-flex mt-auto border-top p-4">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="www.twitter.com"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="www.facebook.com"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="www.linkedin.com"><i
+                                        class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-    </section> --}}
-    {{-- Testo Section  End --}}
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+
+
+
+
+
+
+
+
+
 @endsection

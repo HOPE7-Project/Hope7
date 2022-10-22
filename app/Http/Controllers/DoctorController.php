@@ -43,10 +43,14 @@ class DoctorController extends Controller
     {
 
         $request->validate([
-            'name' => '',
-            'email' => '',
-            'password' => '',
+            'Name' => 'required',
+            'Email' => 'required',
+            'Password' => 'required',
+            'Available' => 'required',
+            'Personal' => 'required',
+            'Certificate' => 'required',
 
+            
         ]);
 
 
