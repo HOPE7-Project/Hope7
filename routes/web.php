@@ -25,7 +25,7 @@ use App\Http\Controllers\testo;
 Route::get('/index', function () {
     return view('Home.index');
 });
-Route::get('/index', [testo::class, 'index']);
+// Route::get('/index', [testo::class, 'index']);
 Route::get('/index', [DoctorController::class, 'index']);
 
 

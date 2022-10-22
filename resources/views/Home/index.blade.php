@@ -181,7 +181,7 @@
 
     {{-- Testo Section Start --}}
 
-    <section class="gradient-custom">
+    {{-- <section class="gradient-custom">
         <div class="container-fluid py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5" style="max-width: 500px;">
@@ -264,6 +264,6 @@
                     </div>
                 </div>
             </div>
-    </section>
+    </section> --}}
     {{-- Testo Section  End --}}
 @endsection
