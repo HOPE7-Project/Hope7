@@ -15,7 +15,12 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        $doctors = DB::table('doctors')->skip(10)->take(5)->get();
+
+
+        return view('Home.index', [
+            'doctors' => $doctors
+        ]);
     }
 
 
@@ -23,33 +28,32 @@ class DoctorController extends Controller
     {
         $doctor = doctor::where('id', $id)->get();
         // dd($doctor);
-        $appointmentsAndusers = DB::table('appointment')->join('users', 'appointment.user_id', '=', 'users.id')->where('appointment.doctor_id' , $id)->get();
+        $appointmentsAndusers = DB::table('appointment')->join('users', 'appointment.user_id', '=', 'users.id')->where('appointment.doctor_id', $id)->get();
 
-        return view('doctorpage' , ['id' => $id , 'doctor' => $doctor , 'appointmentsAndusers' => $appointmentsAndusers]);
+        return view('doctorpage', ['id' => $id, 'doctor' => $doctor, 'appointmentsAndusers' => $appointmentsAndusers]);
     }
 
-    public function editdoctorinfo($id){
+    public function editdoctorinfo($id)
+    {
         $doctor = doctor::where('id', $id)->get();
-        return view('editDocProfile' ,['id' => $id , 'doctor'=>$doctor]);
+        return view('editDocProfile', ['id' => $id, 'doctor' => $doctor]);
     }
 
-    public function updateDoctorProfile(Request $request, $id){
+    public function updateDoctorProfile(Request $request, $id)
+    {
 
         $request->validate([
             'name' => '',
             'email' => '',
             'password' => '',
-            
+
         ]);
 
-        
 
-        doctor::where('id', $id)->update(['name' => request('Name'), 'email' => request('Email'), 'password' => request('Password'), 'available_time' => request('Available'), 'image' => request('Personal'), 'certificate' => request('Certificate') ]);
+
+        doctor::where('id', $id)->update(['name' => request('Name'), 'email' => request('Email'), 'password' => request('Password'), 'available_time' => request('Available'), 'image' => request('Personal'), 'certificate' => request('Certificate')]);
 
         return redirect("/doctorprofile/$id")->with('mssg', 'Personal information updated successfully');
-    
-
-
     }
 
     /**

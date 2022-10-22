@@ -22,25 +22,26 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/index', function () {
     return view('Home.index');
 });
+Route::get('/index', [DoctorController::class,'index']);
 //testimonial routes
-Route::get('/userprofile/testimonial' , [UserController::class, 'testimonial'])->name('testimonial');
-Route::post('/userprofile/testimonial/post' , [UserController::class, 'testimonialpost'])->name('testimonialpost');
+Route::get('/userprofile/testimonial', [UserController::class, 'testimonial'])->name('testimonial');
+Route::post('/userprofile/testimonial/post', [UserController::class, 'testimonialpost'])->name('testimonialpost');
 
 
 //user profile routes
-Route::get('/userprofile/{id}' , [UserController::class, 'showuserpage']);
-Route::get('/userprofile/edit/{id}' , [UserController::class, 'edituserinfo'])->name('editProfile');
-Route::put('/userprofile/edit/update/{id}' , [UserController::class, 'updateuserinfo'])->name('updateProfile');
+Route::get('/userprofile/{id}', [UserController::class, 'showuserpage']);
+Route::get('/userprofile/edit/{id}', [UserController::class, 'edituserinfo'])->name('editProfile');
+Route::put('/userprofile/edit/update/{id}', [UserController::class, 'updateuserinfo'])->name('updateProfile');
 
 
 
 //Doctor Profile routes
-Route::get('/doctorprofile/{id}' , [DoctorController::class, 'showdoctorpage']);
-Route::get('/doctorprofile/edit/{id}' , [DoctorController::class, 'editdoctorinfo'])->name('editDocProfile');
-Route::put('/doctorprofile/edit/update/{id}' , [DoctorController::class, 'updateDoctorProfile'])->name('updateDoctorProfile');
+Route::get('/doctorprofile/{id}', [DoctorController::class, 'showdoctorpage']);
+Route::get('/doctorprofile/edit/{id}', [DoctorController::class, 'editdoctorinfo'])->name('editDocProfile');
+Route::put('/doctorprofile/edit/update/{id}', [DoctorController::class, 'updateDoctorProfile'])->name('updateDoctorProfile');
 
 // abou page
 Route::get('/about', function () {
@@ -66,29 +67,27 @@ Route::get('/appointment', function () {
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 // order
-Route::get('/product' , [ProductController::class, 'index']);
+Route::get('/product', [ProductController::class, 'index']);
 Route::get('order/{id}', [OrderController::class, 'index']);
-Route::get('/orderSave/{names}/{inputId}/{inputCity}/{inputPhone}/{inputAddress}/{product_id}' , [OrderController::class, 'store']);
+Route::get('/orderSave/{names}/{inputId}/{inputCity}/{inputPhone}/{inputAddress}/{product_id}', [OrderController::class, 'store']);
 
 
 // admin dashboard
-Route::get('/admin',[AdminController::class,'index'])->middleware(['auth', 'verified']);
-Route::get('/admin/editUser/{id}',[AdminController::class,'editUser']);
-Route::post('/admin/storeEdit/{id}',[AdminController::class,'storeEdit']);
+Route::get('/admin', [AdminController::class, 'index'])->middleware(['auth', 'verified']);
+Route::get('/admin/editUser/{id}', [AdminController::class, 'editUser']);
+Route::post('/admin/storeEdit/{id}', [AdminController::class, 'storeEdit']);
 
-Route::get('/admin/editDoctor/{id}',[AdminController::class,'editDoctor']);
-Route::post('/admin/storeEditDoctor/{id}',[AdminController::class,'storeEditDoctor']);
+Route::get('/admin/editDoctor/{id}', [AdminController::class, 'editDoctor']);
+Route::post('/admin/storeEditDoctor/{id}', [AdminController::class, 'storeEditDoctor']);
 
-Route::get('/admin/delete/{id}',[AdminController::class,'destroy']);
-Route::get('/admin/deleteDoctor/{id}',[AdminController::class,'deleteDoctor']);
+Route::get('/admin/delete/{id}', [AdminController::class, 'destroy']);
+Route::get('/admin/deleteDoctor/{id}', [AdminController::class, 'deleteDoctor']);
 
-Route::get('/admin/allDoctor',[AdminController::class,'allDoctor']);
-Route::get('/admin/allUsers',[AdminController::class,'allUsers']);
-Route::get('/admin/allProduct',[AdminController::class,'allProduct']);
-Route::post('/admin/addProduct',[AdminController::class,'addProduct']);
-
-
+Route::get('/admin/allDoctor', [AdminController::class, 'allDoctor']);
+Route::get('/admin/allUsers', [AdminController::class, 'allUsers']);
+Route::get('/admin/allProduct', [AdminController::class, 'allProduct']);
+Route::post('/admin/addProduct', [AdminController::class, 'addProduct']);
