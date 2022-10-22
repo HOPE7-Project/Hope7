@@ -9,7 +9,7 @@ use App\Http\Controllers\DoctorController;
 
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\testo;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,10 @@ use App\Http\Controllers\ProductController;
 Route::get('/index', function () {
     return view('Home.index');
 });
-Route::get('/index', [DoctorController::class,'index']);
+Route::get('/index', [testo::class, 'index']);
+Route::get('/index', [DoctorController::class, 'index']);
+
+
 //testimonial routes
 Route::get('/userprofile/testimonial', [UserController::class, 'testimonial'])->name('testimonial');
 Route::post('/userprofile/testimonial/post', [UserController::class, 'testimonialpost'])->name('testimonialpost');

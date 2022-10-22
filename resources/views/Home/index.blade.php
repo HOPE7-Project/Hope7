@@ -125,7 +125,7 @@
 
     {{-- Services Section End --}}
 
-
+    {{-- Doctors Section Start --}}
     <div class="container-fluid py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5" style="max-width: 500px;">
@@ -177,4 +177,93 @@
         </div>
     </div>
     {{-- Doctors Section Ends --}}
+    <hr>
+
+    {{-- Testo Section Start --}}
+
+    <section class="gradient-custom">
+        <div class="container-fluid py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                    <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Testimonial</h5>
+                    <h1 class="display-4">Patients Say About Our Services</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="col-md-12">
+                            <div class="text-center mb-4 pb-2">
+                                <i class="fas fa-quote-left fa-3x text-white"></i>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body px-4 py-5">
+                                    <!-- Carousel wrapper -->
+                                    <div id="carouselDarkVariant" class="carousel slide carousel-dark"
+                                        data-mdb-ride="carousel">
+                                        <!-- Indicators -->
+                                        <div class="carousel-indicators mb-0">
+                                            <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="0"
+                                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                                            <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="1"
+                                                aria-label="Slide 1"></button>
+                                            <button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="2"
+                                                aria-label="Slide 1"></button>
+                                        </div>
+
+                                        <!-- Inner -->
+                                        <div class="carousel-inner pb-5">
+                                            <!-- Single item -->
+                                            @foreach ($testimonialss as $key => $testimonial)
+                                                <div class="carousel-item {{ $key == 0 ? ' active' : '' }}">
+                                                    <div class="row d-flex justify-content-center">
+                                                        <div class="col-lg-10 col-xl-8">
+                                                            <div class="row">
+                                                                <div class="col-lg-4 d-flex justify-content-center">
+                                                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
+                                                                        class="rounded-circle shadow-1 mb-4 mb-lg-0"
+                                                                        alt="woman avatar" width="150"
+                                                                        height="150" />
+                                                                </div>
+                                                                <div
+                                                                    class="col-9 col-md-9 col-lg-7 col-xl-8 text-center text-lg-start mx-auto mx-lg-0">
+                                                                    <h4 class="mb-4">{{ $testimonial->name }}</h4>
+                                                                    </h4>
+                                                                    <p class="mb-0 pb-3">
+                                                                        {{ $testimonial->message }}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+
+                                            <!-- Inner -->
+
+                                            <!-- Controls -->
+                                            <button class="carousel-control-prev" type="button"
+                                                data-mdb-target="#carouselDarkVariant" data-mdb-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-mdb-target="#carouselDarkVariant" data-mdb-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        <!-- Carousel wrapper -->
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-4 pt-2">
+                                    <i class="fas fa-quote-right fa-3x text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    {{-- Testo Section  End --}}
 @endsection
