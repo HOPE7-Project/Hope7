@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class DonationController extends Controller
 {
-    
- /**
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -16,26 +16,22 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
-// dd($request);
+        // dd($request);
 
-        $donation=$request->validate([
+        $donation = $request->validate([
             'donationAmount' => ['required', 'integer'],
             'emailDon' => ['required', 'string', 'email', 'max:255'],
-            'billingAddress'=>['required'],
-            'cardholderName'=>['required'],
-            'expirationDate'=>['required'],
-            'securityCode' => ['required','integer'],
-            'cardNo' => ['required','integer'],
-            'zip' => ['required','integer'],
+            'billingAddress' => ['required'],
+            'cardholderName' => ['required'],
+            'expirationDate' => ['required'],
+            'securityCode' => ['required', 'integer'],
+            'cardNo' => ['required', 'integer'],
+            'zip' => ['required', 'integer'],
         ]);
 
-           Donation::create($donation);
-     
-
-          return redirect('/');
+        Donation::create($donation);
 
 
+        return redirect('/');
     }
-
-
 }

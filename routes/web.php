@@ -28,13 +28,13 @@ use App\Http\Controllers\AppointmentController;
 |
 */
 //Landing Page
-Route::get('/' , [DepartmentsController::class, 'index'])->name('HomePage');
+Route::get('/', [DepartmentsController::class, 'index'])->name('HomePage');
 
 
 
 //testimonial routes
-Route::get('/userprofile/testimonial/{id}' , [UserController::class, 'testimonial'])->name('testimonial');
-Route::post('/userprofile/testimonial/post/{id}' , [UserController::class, 'testimonialpost'])->name('testimonialpost');
+Route::get('/userprofile/testimonial/{id}', [UserController::class, 'testimonial'])->name('testimonial');
+Route::post('/userprofile/testimonial/post/{id}', [UserController::class, 'testimonialpost'])->name('testimonialpost');
 
 
 //user profile routes
@@ -71,8 +71,8 @@ Route::get('/Contact', function () {
 Route::get('/appointment/{id}', function () {
     return  view('appointment');
 });
-Route::get('/appointment/{id}' , [AppointmentController::class, 'appointmentPage'])->name('appointmentPage');
-Route::post('/appointment/store/{id}' , [AppointmentController::class, 'appointmentStore'])->name('appointmentStore');
+Route::get('/appointment/{id}', [AppointmentController::class, 'appointmentPage'])->name('appointmentPage');
+Route::post('/appointment/store/{id}', [AppointmentController::class, 'appointmentStore'])->name('appointmentStore');
 
 
 
@@ -86,9 +86,9 @@ require __DIR__ . '/auth.php';
 
 
 // order
-Route::get('/product' , [ProductController::class, 'index']);
+Route::get('/product', [ProductController::class, 'index']);
 Route::get('order/{id}', [OrderController::class, 'indexO'])->middleware(['auth', 'verified']);
-Route::get('/orderSave/{names}/{inputId}/{inputCity}/{inputPhone}/{inputAddress}/{product_id}' , [OrderController::class, 'store']);
+Route::get('/orderSave/{names}/{inputId}/{inputCity}/{inputPhone}/{inputAddress}/{product_id}', [OrderController::class, 'store']);
 
 
 // admin dashboard
@@ -112,8 +112,7 @@ Route::get('/test', function () {
 
 
 //Donation
-Route::post('donationForm' , [DonationController::class, 'store']);
+Route::post('donationForm', [DonationController::class, 'store']);
 Route::get('/donation', function () {
     return  view('donation');
 });
-
