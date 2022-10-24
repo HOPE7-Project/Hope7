@@ -49,7 +49,7 @@
                 <div class="flex items-center justify-end mt-4">
                     <a href="/register">Not a member yet? Register now</a>
 
-                    <x-primary-button class="ml-3">
+                    <x-primary-button class="ml-3" style="background-color:#53b7c6">
                         {{ __('Log in') }}
                     </x-primary-button>
                 </div>

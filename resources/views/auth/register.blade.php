@@ -59,7 +59,7 @@
                     {{ __('Are you Doctor?') }}
                 </a>
 
-                <x-primary-button class="ml-4">
+                <x-primary-button class="ml-4" style="background-color:#53b7c6">
                     {{ __('Register') }}
                 </x-primary-button>
             </div>

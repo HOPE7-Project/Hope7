@@ -102,7 +102,10 @@
                             <div class="col-12 col-sm-7 h-100 d-flex flex-column">
                                 <div class="mt-auto p-4">
                                     <h3>{{$doctor['name']}}</h3>
-                                    <h6 class="fw-normal fst-italic text-primary mb-4">{{$doctor['name']}}</h6>
+                                    @php
+                                    $DepartmentName= App\Models\departments::find($doctor['department_id'])->name;
+                                    @endphp
+                                    <h6 class="fw-normal fst-italic text-primary mb-4">{{$DepartmentName}}</h6>
                                     <p class="m-0">{{$doctor['overview']}}</p>
                                 </div>
                                 <div class="d-flex mt-auto border-top p-4">
