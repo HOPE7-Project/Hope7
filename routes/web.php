@@ -52,7 +52,7 @@ Route::put('/doctorprofile/edit/update/{id}' , [DoctorController::class, 'update
 
 
 
-// abou page
+// about page
 Route::get('/about', function () {
     return view('about');
 });

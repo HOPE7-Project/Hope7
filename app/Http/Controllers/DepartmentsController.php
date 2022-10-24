@@ -12,11 +12,11 @@ class DepartmentsController extends Controller
 {
     public function index()
     {
-        
+
         $Departments = departments::all();
         $products = product::all();
         $doctor = doctor::all();
-        $testimonials=Testimonial::all();
-        return view('Home.index', ['Department' => $Departments, 'products' => $products, 'doctors' => $doctor,'testimonials'=>$testimonials]);
+        $testimonials = Testimonial::all();
+        return view('Home.index', ['Department' => $Departments, 'products' => $products, 'doctors' => $doctor, 'testimonials' => $testimonials]);
     }
 }

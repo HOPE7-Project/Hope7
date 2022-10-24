@@ -17,11 +17,11 @@
 
     <body style="height: initial; overflow: initial; position: initial;">
 
-      @if (session()->has('success'))
-      <div x-data=" { show: true }" x-init="setTimeout(() => show = false, 4000)" x-show="show"
-          class=" btn-primary fs-4 text-center ">
-          <p>{{ session('success') }}</p></div>
-      @endif
+        @if (session()->has('success'))
+            <div x-data=" { show: true }" x-init="setTimeout(() => show = false, 4000)" x-show="show" class=" btn-primary fs-4 text-center ">
+                <p>{{ session('success') }}</p>
+            </div>
+        @endif
         <div class="fade-in">
 
 
@@ -34,56 +34,71 @@
                     </div>
                     <div class="col-12 col-lg-5 mt-5 pt-3">
                         <div class="row">
-                            <h2 class="text-primary text-uppercase border-bottom border-5">Your gift impacts our community
+                            <h2 class=" text-center text-uppercase border-bottom border-5">Your gift impacts our community
                             </h2>
-                            <div class="d-flex justify-content-between mt-5">
+                            <div class="d-flex justify-content-center mt-2">
                                 <button class="funButton rowButton25" data-toggle="modal" data-target="#exampleModal"
                                     type="button"><i data-formid="271" data-frequency="m"
                                         class="material-icons align-middle">favorite</i>Donate</button>
 
                             </div>
+                            <h2 class="d-inline-block text-center  text-uppercase border-bottom border-5 mt-5">Over All
+                                Total
+                                Donations
+                            </h2>
+                            <div class="d-flex justify-content-center mt-2">
+
+                                <section>
+
+                                    <h3 class="  text-primary text-uppercase  border-5"> <span> ${{ $sum }} </span>
+                                    </h3>
+                                </section>
+                            </div>
                         </div>
                         <br> <br>
-                        <section>
-                            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Over All Total
-                                Donations
-                            </h5>
-                            <h5 class="  text-uppercase  border-5"> <span> ${{ $sum }} </span></h5>
-                        </section>
+
+
                         <br><br>
+
                         <div class="row">
+                            <div class="d-flex justify-content-center mt-2">
 
-                            <section>
-                                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Last Donations
-                                </h5>
-                            </section>
-                            <table class="table  table-bordered border-info ">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Amount</th>
-                                        <th scope="col">Donated at</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="table-group-divider ">
-                                    <tr>
-                                        @php
-                                            $i = 0;
-                                        @endphp
-                                        @foreach ($show as $item)
+                                <section>
+                                    <h2 class="d-inline-block text-center text-uppercase border-bottom border-5">Last
+                                        Donations
+                                    </h2>
+                                </section>
+                            </div>
+                            <div class="d-flex justify-content-center mt-2">
+
+                                <table class="table text-center table-bordered border-info ">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Amount</th>
+                                            <th scope="col">Donated at</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-group-divider text-center ">
+                                        <tr>
                                             @php
-                                                $i++;
+                                                $i = 0;
                                             @endphp
-                                            <th scope="row ">{{ $i }}</th>
-                                            <td>{{ $item->donationAmount }}</td>
-                                            <td>{{ $item->created_at }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                            @foreach ($show as $item)
+                                                @php
+                                                    $i++;
+                                                @endphp
+                                                <th scope="row ">{{ $i }}</th>
+                                                <td>{{ $item->donationAmount }}</td>
+                                                <td>{{ $item->created_at }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
 
 
 
+                            </div>
 
                         </div>
                     </div>
@@ -92,7 +107,6 @@
             </div>
 
 
-        </div>
 
 
 
@@ -206,7 +220,7 @@
 
             </div>
         </div>
-                
+
 
 
 
@@ -223,9 +237,9 @@
 
 
         {{-- <script src="{{asset('js/test.js')}}"></script> --}}
-     
-        
-        
+
+
+
 
 
     </html>
