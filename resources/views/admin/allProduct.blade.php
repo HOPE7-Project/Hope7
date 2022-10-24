@@ -80,6 +80,7 @@
         <th scope="col">Name</th>
         <th scope="col">Image</th>
         <th scope="col">description</th>
+        <th scope="col">Quantity</th>
         <th scope="col">Actions</th>
     </tr>
     </thead>
@@ -90,6 +91,7 @@
             <td>{{$product['name']}}</td>
             <td><img src="data:image/png;base64,{{$product['image']}}" alt="" style="width: 50px"> </td>
             <td>{{$product['description']}}</td>
+            <td>{{$product['quantity']}}</td>
             <td>
                 <div>
                     <a class="fa-solid fa-user-pen me-2" style="color:green"   href="editProduct/{{$product['id']}}"></a>

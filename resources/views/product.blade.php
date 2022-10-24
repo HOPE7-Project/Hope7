@@ -21,17 +21,21 @@
 </div>
 
 
+<div class="m-3">
+<label class="mb-1" for="searchElement">Type Product Name</label>
+<input class="form-control w-25" id="searchElement" type="search" placeholder="Search" aria-label="Search">
+</div>
 
 
 <div class="container-fluid py-5">
     <div class="container d-flex flex-wrap">
         @foreach ($products as $product)
 
-        <div class="bg-light rounded text-center m-3">
+        <div class="card bg-light rounded text-center m-3">
             <div class="position-relative">
                 <img class="img-fluid rounded-top" src="data:image/jpg;charset=utf8;base64,{{$product['image']}}" alt="0000000">
             </div>
-            <div class="text-center py-5 m-5">
+            <div class="text-center name py-5 m-5">
                 <h3>{{$product['name']}}</h3>
                 <p>{{$product['description']}}</p>
                 <a href="order/{{$product['id']}}" class="btn btn-primary rounded-pill py-3 px-5 my-2">Order Now</a>
@@ -47,25 +51,27 @@
 
 
 
+<script>
+let searchInput = document.getElementById("searchElement");
 
 
+searchInput.addEventListener("input", (event) => {
+    const cards = [] = document.getElementsByClassName("card");
+  const searched = event.target.value.toLowerCase();
+  for (let i = 0; i < cards.length; i++){
+
+    const visible = cards[i].children[1].children[0].innerHTML.toLowerCase().includes(searched);
+
+    if (visible != true) {
+        cards[i].style.display = "none";
+    } else {
+        cards[i].style.display = "inline-block";
+    }
+}
+  });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</script>
 
 
 

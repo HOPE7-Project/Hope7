@@ -22,6 +22,7 @@ class AppointmentController extends Controller
     public function appointmentPage($id)
     {
 
+        //find all doctors where their ids = department id ($id)
         $availableForDepartment = doctor::where('department_id', $id)->get();
         return view('appointment', ['id' => $id, 'availableForDepartment' => $availableForDepartment]);
     }
@@ -46,24 +47,6 @@ class AppointmentController extends Controller
         $appointment->user_id = $user_id;
         $time = explode(',', request('time'));
         $appointment->appointment_time = $time[0];
-
-        // select random_int ((select all from doctors where department_id= $id and available_time =$appointment->appointment_time)) then push id number foreeach inside array then select random number from an array
-        // $availableDoctors = doctor::where([
-        //     ['department_id', "$id"],
-        //     ['available_time', "$appointment->appointment_time"],
-        // ])->get();
-
-        // $ArrayofIDs=[];
-
-        // foreach ($availableDoctors as $doctor)
-        // {
-        //     array_push($ArrayofIDs, $doctor->id);
-
-        // }
-
-        // $rand_id = array_rand($ArrayofIDs, 1);
-        // $rand_id++;
-
 
         $appointment->doctor_id = $time[1];
         $appointment->save();
