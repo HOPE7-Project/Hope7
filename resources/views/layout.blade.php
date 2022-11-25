@@ -59,21 +59,21 @@
         <div class="container">
             @endsection
             <nav class="navbar navbar-expand-lg bg-white navbar-light @section('py') py-lg-0" @endsection >
-                <a href="/" class="navbar-brand"> <img
-                        src="https://243515-1941852-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2015/05/Hands-of-Hope-logo.png"
-                        alt="hope" width="200px" height="110px">
-
-                </a>
+                <a href="\" class="navbar-brand"> <img src="https://243515-1941852-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2015/05/Hands-of-Hope-logo.png"
+                        alt="hope" width="200px" height="110px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" style="line-height: 2.5" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="/" class="nav-item nav-link ">Home</a>
+                        <a href="/" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}
+                            ">Home</a>
 
-                        <a href="/about" class="nav-item nav-link">About</a>
+                        <a href="/about" class="nav-item nav-link {{request()->is('about') ? 'active' : '' }}
+                            ">About</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Departments</a>
+                            <a href="#" class="nav-link dropdown-toggle {{ request()->is('appointmentPage') ? 'active' : '' }}
+                                " data-bs-toggle="dropdown">Departments</a>
                             <div class="dropdown-menu m-0" style="font-size: 14px !important;">
                                 @foreach($Department as $department)
 
@@ -85,8 +85,10 @@
                             </div>
                         </div>
 
-                        <a href="/donation" class="nav-item nav-link ">Donation</a>
-                        <a href="/product" class="nav-item nav-link">Products</a>
+                        <a href="/donation" class="nav-item nav-link {{request()->is('donation') ? 'active' : '' }}
+                            ">Donation</a>
+                        <a href="/product" class="nav-item nav-link {{ request()->is('product') ? 'active' : '' }}
+                            ">Products</a>
                         @auth
                             @can('User')
                                 <a class="nav-item nav-link" href="/userprofile/{{$user['id']}}">
@@ -124,14 +126,14 @@
                         @guest
                             <!-- inser more links here -->
                             <div class="dropdown">
-                                <a class="nav-item nav-link" type="button" id="dropdownMenuButton1"
-                                   data-bs-toggle="dropdown" aria-expanded="false">
-                                    Login/Register
+                                <a href="/login" class="btn btn-primary rounded-pill py-3 px-3 mx-3 my-3" type="button" id="dropdownMenuButton1"
+                                 >
+                                    Login
                                 </a>
-                                <ul class="dropdown-menu main-nav" aria-labelledby="dropdownMenuButton1">
+                                {{-- <ul class="dropdown-menu main-nav" aria-labelledby="dropdownMenuButton1">
                                     <li><a href="/login" class="nav-item nav-link">LogIn</a></li>
                                     <li><a class="nav-item nav-link " href="/register">Register</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         @endguest
                     </div>

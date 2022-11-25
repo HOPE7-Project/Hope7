@@ -12,13 +12,14 @@
 
 @section('content')
 
-    @if(session('mssg'))
+    {{-- @if(session('mssg'))
         <div class="row justify-content-md-center py-3">
             <h3 class="alert alert-success text-center col-md-4">{{session ('mssg')}}</h3>
         </div>
     @endif
-
     <div class="container bootstrap snippets bootdey py-5">
+     
+        @can("User")
         <div class="row justify-content-md-center">
 
             <div class="profile-info col-md-11">
@@ -52,11 +53,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+          </div>
 
-
-        @section('container')
-            <div>
+         @endcan --}}
+               @section('container')
+                <div>
                 @endsection
                 @section('py')
 
@@ -91,10 +92,8 @@
                                                 </div>
 
                                                 <div class="bio-row">
-                                                    <h3>Birthday: 13 July 1983</h3>
                                                 </div>
                                                 <div class="bio-row">
-                                                    <h3> Mobile: 0785631487</h3>
                                                 </div>
                                             </div>
 
@@ -106,7 +105,7 @@
                                                 @endphp
 
                                                 <div class="bio-row">
-                                                    <h3>City: Amman</h3>
+                                                    {{-- <h3>City: Amman</h3> --}}
                                                 </div>
                                             </div>
 
@@ -195,23 +194,23 @@
                                         <th><h4>Date</h4></th>
 
                                         </thead>
-                                        @foreach($orders as $order)
+                                       
 
                                             <tbody>
-
+                                                @foreach($orders as $order)
                                             <!-- Display Records -->
                                             <tr class="">
                                                 <td class=""><h5>{{$order->id}}</h5></td>
-                                                <td class=""><h5>{{$order->name}}</h5></td>
+                                                <td class=""><h5>{{App\Models\product::find($order->product_id)['name']}}</h5></td>
                                                 <td class=""><h5>{{$order->status}}</h5></td>
                                                 <td class=""><h5>{{$order->created_at}}</h5></td>
 
 
                                             </tr>
 
-
+                                            @endforeach
                                             </tbody>
-                                        @endforeach
+                               
 
                                     </table>
                                 </div>

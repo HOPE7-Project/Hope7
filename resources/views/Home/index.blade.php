@@ -12,9 +12,9 @@
                         <h1 class="display-1 text-white mb-md-4" style="background: #00000042;">Best Healthcare Solution In Your City</h1>
                         <div class="pt-2">
                             {{-- <a href="" class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Find Doctor</a> --}}
-                            <a href=""
+                            <a href="/donation"
                                class="btn btn-outline-info rounded-pill py-md-3 px-md-5 mx-2"
-                               style="background-color:turquoise; color:white;">Appointment</a>
+                               style="background-color:turquoise; color:white;">Donation</a>
                         </div>
                     </div>
                 </div>

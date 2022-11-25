@@ -41,7 +41,7 @@ document.getElementById("donationAmount").onblur= function() {
 
 
 document.getElementById("billingAddress").onblur= function() {
-    let isName = /^[a-zA-Z\s0-9-/,]+$/igm.test(document.getElementById("billingAddress").value);
+    let isName = /^[a-zA-Z\s]+$/igm.test(document.getElementById("billingAddress").value);
     if(!isName) {
         document.getElementById("billingAddresss").innerHTML="* Address Must Be Letters Only";
     }
@@ -52,4 +52,37 @@ document.getElementById("billingAddress").onblur= function() {
 
 
 
+document.getElementById("inputCity").onblur= function() {
+    let isName = /^[a-zA-Z\s0-9-/,]+$/igm.test(document.getElementById("inputCity").value);
+    if(!isName) {
+        document.getElementById("inputCitys").innerHTML="* Address Must Be Letters Only";
+    }
+    else {
+        document.getElementById("billingAddresss").innerHTML="*";
+    }
+}
 
+
+
+
+
+// document.getElementById("inputId").onblur= function() {
+//     let isName = /\d{10}$/igm.test(document.getElementById("inputId").value);
+//     if(!isName) {
+//         document.getElementById("inputIds").innerHTML="* National ID  Must 10 Numbers";
+//     }
+//     // else {
+//     //     // document.getElementById("inputIds").innerHTML="*";
+//     // }
+// }
+
+
+// document.getElementById("phone").onblur= function() {
+//     let isName = /^\d{10}$/igm.test(document.getElementById("phone").value);
+//     if(!isName) {
+//         document.getElementById("spanPhone").innerHTML="* Phone Number Must Be 10 Numbers";
+//     }
+//     // else {
+//     //     document.getElementById("spanPhone").innerHTML="*";
+//     // }
+// }

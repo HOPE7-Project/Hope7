@@ -39,13 +39,13 @@
                     </section>
                     <br><br>
                     <div class="row">
-
+{{-- 
                         <section>
                             <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5"
                                 style="font-size: 30px">Last Donations
                             </h5>
-                        </section>
-                        <div class="w-75">
+                        </section> --}}
+                        {{-- <div class="w-75">
                             <table class="table  table-bordered border-info text-center ">
                                 <thead>
                                 <tr>
@@ -70,7 +70,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 offset-lg-1">
@@ -115,7 +115,7 @@
                                     <input class="form-control" name="emailDon" type="email" placeholder="name@email.com">
                                 </div>
                                 <p class="dis fw-bold mb-1">Card details</p>
-                                <span class="text-danger" id="cardNos"></span>
+                                <span class="text-danger" id="cardNos">*</span>
 
                                 @if ($errors->has('cardNo') || $errors->has('expirationDate') || $errors->has('securityCode'))
                                     <span class="text-danger" id="cardNos">{{ $errors->first('cardNo') }}</span> <br>
@@ -141,19 +141,19 @@
                                     @if ($errors->has('cardholderName'))
                                         <span class="text-danger" id="cardholderNames">{{ $errors->first('cardholderName') }}</span>
                                     @endif
-                                    <span class="text-danger" id="cardholderNames"></span>
+                                    <span class="text-danger" id="cardholderNames">*</span>
                                     <input class="form-control"id="cardholderName" name="cardholderName" type="text">
                                 </div>
                                 <div class="my-3 address">
                                     <p class="dis fw-bold mb-3" >Billing address</p>
-                                    <span class="text-danger"  id="billingAddresss"></span>
+                                    <span class="text-danger"  id="billingAddresss">*</span>
                                     @if ($errors->has('billingAddress'))
                                         <span class="text-danger"  id="billingAddresss">{{ $errors->first('billingAddress') }}</span>
                                     @endif
                                     <input class="form-control"id="billingAddress" name="billingAddress" type="text">
                                 </div>
                                 <div class="my-3 address">
-                                    <span class="text-danger" id="zips"></span>
+                                    <span class="text-danger" id="zips">*</span>
                                     @if ($errors->has('zip'))
                                         <span class="text-danger" id="zips">{{ $errors->first('zip') }}</span>
                                     @endif
@@ -165,7 +165,7 @@
                                 <div class=" my-3">
                                     <p class="dis fw-bold mb-2">Donation Amount</p>
                                     <div class="inputWithcheck">
-                                        <span class="text-danger" id="donationAmounts"></span>
+                                        <span class="text-danger" id="donationAmounts">*</span>
                                         @if ($errors->has('donationAmount'))
                                             <span class="text-danger" id="donationAmounts">{{ $errors->first('donationAmount') }}</span>
                                         @endif

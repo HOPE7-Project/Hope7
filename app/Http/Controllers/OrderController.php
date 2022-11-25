@@ -45,7 +45,7 @@ class OrderController extends Controller
     {
         $order = new Order();
         $user = Auth::user();
-        $order->user_id = 1;//$user->id
+        $order->user_id = $user->id;
         $order->national = $inputId;
         $order->product_id = $product_id;
         $order->phone = $inputPhone;

@@ -33,19 +33,19 @@
                         with organisations from the private sector, donors, NGOs, governments and the investor
                         community.
                         "HOPE" is an independent non-profit organisation. </p>
-                    <div class="row g-3 pt-3">
+                    <div class="row g-3 pt-3" style="padding-left:8% ">
                         <div class="col-sm-3 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
                                 <i class="fa fa-3x fa-user-md text-primary mb-3"></i>
                                 <h6 class="mb-0">Qualified<small class="d-block text-primary">Doctors</small></h6>
                             </div>
                         </div>
-                        <div class="col-sm-3 col-6">
+                        {{-- <div class="col-sm-3 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
                                 <i class="fa fa-3x fa-procedures text-primary mb-3"></i>
                                 <h6 class="mb-0">Emergency<small class="d-block text-primary">Services</small></h6>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-sm-3 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
                                 <i class="fa fa-3x fa-microscope text-primary mb-3"></i>

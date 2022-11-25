@@ -30,7 +30,9 @@ class UserController extends Controller
     {
         $User = User::where('id', $id)->get();
         $appointmentsAndDoctors = DB::table('doctors')->join('appointment', 'appointment.doctor_id', '=', 'doctors.id')->where('appointment.user_id', $id)->get();
-        $orders = DB::table('products')->join('orders', 'orders.product_id', '=', 'products.id')->where('orders.user_id', $id)->get();
+        $orders = order::where("user_id",$id)->get();
+        // dd($orders);
+        // DB::table('products')->join('orders', 'orders.product_id', '=', 'products.id')->where('orders.user_id', $id)->get();
 // dd($orders);
 
         return view('profile', ['id' => $id, 'User' => $User, 'appointments' => $appointmentsAndDoctors, 'orders' => $orders]);
@@ -74,8 +76,8 @@ class UserController extends Controller
     {
 
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string', 'email'],
             'subject' => ['required', 'string'],
             'message' => ['required', 'string'],
 
